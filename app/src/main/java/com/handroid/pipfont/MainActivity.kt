@@ -1,20 +1,16 @@
 package com.handroid.pipfont
 
 import android.content.Intent
-import android.content.Intent.makeRestartActivityTask
-import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.provider.Settings.System.FONT_SCALE
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         var restartbtn = findViewById<Button>(R.id.restartbtn)
         var pipbtn = findViewById<Button>(R.id.pipbtn)
         var systembtnb = findViewById<Button>(R.id.systembtnb)
-        var systembtnc = findViewById<Button>(R.id.systembtnc)
+        var bold = findViewById<Button>(R.id.bold)
+        var scale = findViewById<Button>(R.id.scale)
+        var bs = findViewById<TextView>(R.id.bold_status)
+        var ss = findViewById<TextView>(R.id.scale_status)
 
         btn.setOnClickListener { it: View? ->
             var send = Intent(this, VideoActivity::class.java)
@@ -151,22 +150,67 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        systembtnc.setOnClickListener {
+        bold.setOnClickListener {
             try {
-                var boldSetting = Settings.Global.getInt(baseContext.contentResolver,"bold_text");
+                var boldSetting = Settings.Global.getInt(baseContext.contentResolver, "bold_text");
+                Log.d("MainActivity", "systembtnc : " + boldSetting)
+                var flag = false
+                when (boldSetting) {
+                    0 -> {
+                        flag = Settings.Global.putInt(
+                            baseContext.contentResolver, "bold_text", 1
+                        )
+                        flag = Settings.Global.putInt(
+                            baseContext.contentResolver, "bold_text", 1
+                        )
+                        Log.d("MainActivity", "################## 00000")
 
-                Log.d(TAG,"bold_text : "+Settings.Global.getInt(baseContext.contentResolver,"bold_text"))
-                Settings.Global.putInt(
-                    baseContext.contentResolver,"bold_text",1
-                )
-                Settings.Global.putInt(
-                    baseContext.contentResolver,"bold_text",boldSetting
-                )
+                    }
+                    else -> {
+                        flag = Settings.Global.putInt(
+                            baseContext.contentResolver, "bold_text", 0
+                        )
+                        flag = Settings.Global.putInt(
+                            baseContext.contentResolver, "bold_text", 0
+                        )
+                        Log.d("MainActivity", "##################else")
+
+                    }
+
+                }
+                Log.d("MainActivity", "##################1")
+                if (flag) {
+                    Log.d("MainActivity", "flag : " + flag)
+                    Timer("SettingUp", false).schedule(500) {
+                        Settings.Global.putInt(
+                            baseContext.contentResolver, "bold_text", boldSetting
+                        )
+                    }
+                }
+                Log.d("MainActivity", "##################2")
             }catch (e:java.lang.Exception){
                 e.printStackTrace()
             }
         }
 
+        scale.setOnClickListener {
+            Settings.System.putFloat(
+                baseContext.contentResolver,
+                FONT_SCALE, 1.0.toFloat()
+            )
+        }
+
+        try{
+            Settings.System.putFloat(
+                baseContext.contentResolver,
+                FONT_SCALE, 1.0.toFloat()
+            )
+            ss.setText("scale status : "+ Settings.System.getFloat(baseContext.contentResolver, FONT_SCALE))
+//            bs.setText("bold status : "+ Settings.Global.getInt(baseContext.contentResolver,"bold_text"))
+//            Settings.System.getInt()
+        }catch (e:java.lang.Exception){
+            e.printStackTrace()
+        }
     }
 
     override fun startActivityForResult(intent: Intent?, requestCode: Int) {
