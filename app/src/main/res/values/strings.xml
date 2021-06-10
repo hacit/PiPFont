@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PiPFont</string>
+    <string name="app_name">Netpixy</string>
     <string name="title_activity_pip">PipActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

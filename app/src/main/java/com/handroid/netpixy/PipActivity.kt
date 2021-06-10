@@ -1,4 +1,4 @@
-package com.handroid.pipfont
+package com.handroid.netpixy
 
 import android.app.PictureInPictureParams
 import android.content.res.Configuration
@@ -6,8 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 
 class PipActivity : AppCompatActivity() {

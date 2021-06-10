@@ -1,4 +1,4 @@
-package com.handroid.pipfont
+package com.handroid.netpixy
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

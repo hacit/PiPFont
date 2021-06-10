@@ -1,4 +1,4 @@
-package com.handroid.pipfont
+package com.handroid.netpixy
 
 import org.junit.Test
 

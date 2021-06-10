@@ -1,25 +1,19 @@
-package com.handroid.pipfont
+package com.handroid.netpixy
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.Player.EventListener
 import com.google.android.exoplayer2.ui.PlayerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 class VideoActivity : AppCompatActivity() {
     lateinit var inTvOne:TextView

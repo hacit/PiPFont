@@ -1,4 +1,4 @@
-package com.handroid.pipfont
+package com.handroid.netpixy
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
-import kotlin.concurrent.schedule
 
 
 class MainActivity : AppCompatActivity() {
@@ -180,12 +178,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 Log.d("MainActivity", "##################1")
                 if (flag) {
-                    Log.d("MainActivity", "flag : " + flag)
-                    Timer("SettingUp", false).schedule(500) {
-                        Settings.Global.putInt(
-                            baseContext.contentResolver, "bold_text", boldSetting
-                        )
-                    }
+//                    Log.d("MainActivity", "flag : " + flag)
+//                    Timer("SettingUp", false).schedule(500) {
+//                        Settings.Global.putInt(
+//                            baseContext.contentResolver, "bold_text", boldSetting
+//                        )
+//                    }
+                    Settings.Global.putInt(
+                        baseContext.contentResolver, "bold_text", boldSetting
+                    )
                 }
                 Log.d("MainActivity", "##################2")
             }catch (e:java.lang.Exception){
@@ -201,12 +202,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         try{
-            Settings.System.putFloat(
-                baseContext.contentResolver,
-                FONT_SCALE, 1.0.toFloat()
-            )
+//            Settings.System.putFloat(
+//                baseContext.contentResolver,
+//                FONT_SCALE, 1.0.toFloat()
+//            )
             ss.setText("scale status : "+ Settings.System.getFloat(baseContext.contentResolver, FONT_SCALE))
-//            bs.setText("bold status : "+ Settings.Global.getInt(baseContext.contentResolver,"bold_text"))
+            bs.setText("bold status : "+ Settings.Global.getInt(baseContext.contentResolver,"bold_text"))
 //            Settings.System.getInt()
         }catch (e:java.lang.Exception){
             e.printStackTrace()
