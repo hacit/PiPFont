@@ -24,17 +24,27 @@
             android:name="com.handroid.netpixy.PipActivity"
             android:supportsPictureInPicture="true"
             ></activity>
-        <activity android:name="com.handroid.netpixy.MainActivity">
+        <activity
+            android:name="com.handroid.netpixy.MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name="com.handroid.netpixy.VideoActivity"
             android:exported="true"
             android:supportsPictureInPicture="true"></activity>
+        <activity
+            android:name="com.handroid.netpixy.IntentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

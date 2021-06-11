@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579829872869",
+    "project_id": "netfixy-981a7",
+    "storage_bucket": "netfixy-981a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579829872869:android:9ecc503f4dc6f7e5ff3c0c",
+        "android_client_info": {
+          "package_name": "com.handroid.netpixy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579829872869-hiet9a6mslk31r5h78tapknmclv5vq31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPkR4CErrU8mE7litxH-YJVrYZCGlmcFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579829872869-hiet9a6mslk31r5h78tapknmclv5vq31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

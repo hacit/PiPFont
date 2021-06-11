@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var TAG = applicationInfo.className
-
+        Log.d(TAG, TAG+" Oncreated")
 
         var btn = findViewById<Button>(R.id.button)
         var systembtn1 = findViewById<Button>(R.id.systembtn1)
